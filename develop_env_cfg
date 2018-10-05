@@ -50,7 +50,7 @@ sudo apt-get install libcupti-dev1
 
 
 
-conda create -n tensorflow python=3.61
+conda create -n tensorflow python=3.6
 
 注意python=3.6为paython的版本，要跟所要安装的tensorflow进行对应
 
@@ -82,7 +82,10 @@ pip install --ignore-installed --upgrade tfBinaryURL1
 
 tfBinaryURL可在清华大学开源软件网站查得，选择cpu/gpu、安装系统、python版本及tensorflow版本后会自动生成。如选择cpu、Linux系统、cp36版本的python、1.4.0的Tensorflow后生成：https://mirrors.tuna.tsinghua.edu.cn/tensorflow/linux/cpu/tensorflow-1.4.0-cp36-cp36m-linux_x86_64.whl 
 如果安装过程中出错，重新运行该行命令即可。
-
+#python 3.6 
+pip install \
+  -i https://pypi.tuna.tsinghua.edu.cn/simple/ \
+  https://mirrors.tuna.tsinghua.edu.cn/tensorflow/linux/cpu/tensorflow-1.7.0-cp36-cp36m-linux_x86_64.whl
 
 
 2.5验证是否安装成功：
