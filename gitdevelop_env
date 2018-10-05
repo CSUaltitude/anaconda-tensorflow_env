@@ -1,0 +1,61 @@
+前言
+
+    Git是团队协作中必不可少的工具，通过github可以实现对工程异地协同编码。
+
+
+
+安装配置过程
+
+    一、查看git是否存在：  
+        在终端输入git，查看是否存在
+
+    二、安装git：  
+        在终端输入命令安装
+
+
+
+sudo apt-get install git1
+
+    三、 配置git： 
+        安装完成后进行git配置，输入指令
+
+
+
+git config --global user.name "xxx"
+git config --global user.eamil "xxx"12
+
+    三、 创建验证用的公钥： 
+        因为git是通过ssh的方式访问资源库的，所以需要在本地创建验证用的文件。 
+        使用命令
+
+
+
+ssh-keygen -C 'you email address@gmail.com' -t rsa1
+
+        注意：ssh与-keygen之间没有空格 
+        会在用户目录~/.ssh/下建立相应的密钥文件。
+
+    四、 向github上传公钥： 
+        使用命令
+
+
+
+cd ~/.ssh1
+
+        进入~/.ssh文件夹，输入
+
+
+
+gedit id_rsa.pub1
+
+        打开id_rsa.pub文件 
+        将公钥内容复制添加到github上即可。 
+
+       github SSHKEYS add new
+
+ 
+        Git的环境配置完成
+
+---------------------
+
+本文来自 idomyway 的CSDN 博客 ，全文地址请点击：https://blog.csdn.net/idomyway/article/details/81975980?utm_source=copy 
