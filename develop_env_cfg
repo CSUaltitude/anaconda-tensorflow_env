@@ -1,0 +1,151 @@
+安装tensorflow共有三种方法，见https://www.tensorflow.org/get_started.在此选用基于Anaconda进行安装的方法，具体步骤总结如下：              
+
+安装环境：Ubuntu 16.04LTS
+1
+
+
+
+1、安装Anaconda
+
+主要参考：https://docs.anaconda.com/anaconda/install/linux
+
+
+
+1.1 从清华大学开源软件网站上选择合适的源文件并下载，
+
+本人选择的是Anaconda3-5.0.1-Linux-x86_64.sh，此为python3.6版本。由于python3为发展趋势，建议安装python3版本。
+
+
+
+1.2 在终端terminal中运行bash ~/path/sourcename,即自动进行安装，过程下会有进行选择，不懂的情况下enter“Yes”。
+
+其中path为对应源文件所在路径，本人的为下载目录，path=‘下载’（中文系统）;sourcename为源文件名称，在此为sourcename=‘Anaconda3-5.0.1-Linux-x86_64.sh’。运行命令如下：
+
+
+
+bash ~/Download/Anaconda3-5.0.1-Linux-x86_64.sh1
+
+
+
+1.3验证安装是否成功：
+
+python
+>>>import numpy #查看是否能够运行，numpy为anaconda内置python库。12
+
+2、安装tensorflow
+
+
+
+2.1 安装GPU条件：
+
+
+
+sudo apt-get install libcupti-dev1
+
+如果不安装GPU版本，则不需要运行命令。
+
+
+
+2.2 创建tensorflow环境：
+
+
+
+conda create -n tensorflow python=3.61
+
+注意python=3.6为paython的版本，要跟所要安装的tensorflow进行对应
+
+
+
+2.2.1如果出现安装不成功的情况，需要把相应已存在的tensorflow文件夹删除：
+
+
+
+cd /home/ucandoit/anaconda3/envs/
+rm -r tensorflow/   
+ls #查看tensorflow文件夹是否删除。如果已删除成功，再次运行创建tensorflow环境命令即可。123
+
+
+
+2.3激活tensorflow环境：
+
+
+
+source activate tensorflow1
+
+
+
+2.4安装tensorflow：
+
+
+
+pip install --ignore-installed --upgrade tfBinaryURL1
+
+tfBinaryURL可在清华大学开源软件网站查得，选择cpu/gpu、安装系统、python版本及tensorflow版本后会自动生成。如选择cpu、Linux系统、cp36版本的python、1.4.0的Tensorflow后生成：https://mirrors.tuna.tsinghua.edu.cn/tensorflow/linux/cpu/tensorflow-1.4.0-cp36-cp36m-linux_x86_64.whl 
+如果安装过程中出错，重新运行该行命令即可。
+
+
+
+2.5验证是否安装成功：
+
+重启terminal后，输入命令：
+
+
+
+source activate tensorflow #首先激活tensorflow环境
+python  #启动python环境
+# 验证TensorFlow是否安装成功
+>>> import tensorflow as tf 
+>>> hello = tf.constant('Hello, TensorFlow!')
+>>> sess = tf.Session()
+>>> print sess.run(hello)
+Hello, TensorFlow! # 恭喜！安装成功！12345678
+
+
+
+3、配置anaconda：
+
+如果不进行配置，启动spyder等也是不能够运行tensorflow的，因为anaconda中默认anzhaung的spyder等是应用于root的，而非tensorflow。在Terminal中运行命令：
+
+
+
+anaconda-navigator #启动anaconda。1
+
+在左侧列表中，选择Environment，可看到Anaconda中安装环境为root和tensorflow。选择Tensorflow后，边上会出现一个箭头，这时就可以在右边的列表中查看、安装、卸载Tensorflow下的软件及软件包了。 
+安装的软件可在anaconda->home下查看，同样需要选择应用环境。
+
+
+
+ipython # terminal下运行python语句,支持自动补全
+spyder # 集成开发环境
+jupyter # 交互式笔记本123
+
+根据需要安装的python库有：
+
+
+
+numpy
+pandas
+matplotlib
+......1234
+
+
+
+4、启动Tensorflow开发环境
+
+有两种方法，方法一，通过anaconda启动：
+
+
+
+anaconda-navigator
+#启动anaconda->home->(Applications on)tensorflow，启动相关开发软件12
+
+方法二，通过terminal启动：
+
+
+
+source activate tensorflow # 激活Tensorflow环境
+python # 或ipython或Spyder启动开发环境
+
+---------------------
+
+本文来自 Running_Robot 的CSDN 博客 ，全文地址请点击：https://blog.csdn.net/hgdwdtt/article/details/78633232?utm_source=copy 
